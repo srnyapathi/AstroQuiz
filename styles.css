@@ -1,0 +1,296 @@
+:root {
+    --color-1: #32BAD9; /* Light Blue */
+    --color-2: #378C5C; /* Medium Green */
+    --color-3: #2D734B; /* Dark Green */
+    --color-4: #4DA63F; /* Bright Green */
+    --color-5: #A64F03; /* Orange */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: var(--color-3);
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(50, 186, 217, 0.2);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: var(--color-5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* Common styles for buttons */
+.button, .house-button, .answer-btn, #endQuiz {
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: var(--color-2);
+    text-decoration: none;
+}
+
+.button:hover, .house-button:hover, .answer-btn:hover {
+    background-color: var(--color-3);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(45, 115, 75, 0.3);
+}
+
+/* Styles for pre-quiz page */
+.house-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.house-button {
+    padding: 15px;
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.house-button.selected {
+    background-color: var(--color-4);
+}
+
+#startQuiz {
+    padding: 12px 24px;
+    background-color: var(--color-2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+}
+
+#startQuiz:hover {
+    background-color: var(--color-3);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(45, 115, 75, 0.3);
+}
+
+#totalQuestions {
+    margin: 15px;
+    font-weight: bold;
+    color: var(--color-5);
+}
+
+/* Styles for quiz page */
+#quiz-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(50, 186, 217, 0.2);
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+#timer, #score {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--color-5);
+    font-weight: bold;
+}
+
+#question {
+    font-size: 50px;
+    margin-bottom: 25px;
+    color: var(--color-3);
+    line-height: 1.4;
+}
+
+#answers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.answer-btn {
+    background-color: var(--color-1);
+    border-radius: 10px;
+}
+
+#endQuiz {
+    margin-top: 30px;
+    background-color: var(--color-5);
+}
+
+#endQuiz:hover {
+    background-color: var(--color-3);
+}
+
+/* Styles for result page */
+.result-item {
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgba(50, 186, 217, 0.1);
+    border-radius: 5px;
+}
+
+.percentage {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-4);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#chartContainer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+input, select {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 2px solid var(--color-1);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: calc(100% - 24px); /* Full width minus padding */
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--color-2);
+    box-shadow: 0 0 10px rgba(50, 186, 217, 0.2);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    color: var(--color-3);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* Keyboard instructions */
+#keyboard-instructions {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--color-2);
+}
+
+#keyboard-instructions ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#keyboard-instructions li {
+    margin: 5px 10px;
+    background-color: var(--color-1);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container, #quiz-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #answers {
+        grid-template-columns: 1fr;
+    }
+
+    .house-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Styles for index.html */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background-color: var(--color-2);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main-button:hover {
+    background-color: var(--color-3);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(45, 115, 75, 0.3);
+}
+
+/* Responsive design for index.html */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .main-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
