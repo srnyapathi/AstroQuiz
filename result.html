@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results - Karakatvas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <div id="results"></div>
+        <div id="chartContainer">
+            <canvas id="resultChart"></canvas>
+        </div>
+        <a href="index.html" class="button">Back to Home</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = JSON.parse(localStorage.getItem('quizResult'));
+            if (results) {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = `
+                    <div class="result-item">Total Questions: ${results.total}</div>
+                    <div class="result-item">Attempted Questions: ${results.attempted}</div>
+                    <div class="result-item">Correct Answers: ${results.score}</div>
+                    <div class="result-item">Wrong Answers: ${results.wrong}</div>
+                    <div class="result-item percentage">Overall Percentage: ${results.percentage}%</div>
+                `;
+
+                // Prepare data for the chart
+                const labels = Object.keys(results.housePercentages).map(house => `House ${house}`);
+                const data = Object.values(results.housePercentages);
+
+                // Create the chart
+                const ctx = document.getElementById('resultChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'House-wise Percentage',
+                            data: data,
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'House-wise Performance'
+                            }
+                        }
+                    }
+                });
+            } else {
+                document.body.innerHTML = '<div class="container"><h1>No results found</h1><a href="index.html" class="button">Back to Home</a></div>';
+            }
+        });
+    </script>
+</body>
+</html>

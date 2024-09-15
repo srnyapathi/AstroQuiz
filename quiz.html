@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakatvas Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="timer">Time left: <span id="time-left"></span></div>
+        <div id="score">Score: <span id="current-score">0</span></div>
+        <p>Select the house to which the following karakatva belongs:</p>
+        <div id="question"></div>
+        <div id="answers"></div>
+        <button id="endQuiz">End Quiz</button>
+        <div id="keyboard-instructions">
+            <p>Keyboard shortcuts:</p>
+            <ul>
+                <li>1-9: Select Houses 1-9</li>
+                <li>0: House 10</li>
+                <li>-: House 11</li>
+                <li>=: House 12</li>
+                <li>E: End Quiz</li>
+            </ul>
+        </div>
+    </div>
+    <script src="House_karakatva_final_data.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
