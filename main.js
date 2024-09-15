@@ -9,7 +9,7 @@ try {
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -17,8 +17,8 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
-  win.webContents.openDevTools()  // Add this line
-
+  win.setMenu(null)
+  // Enable DevTools
 }
 
 app.whenReady().then(createWindow)

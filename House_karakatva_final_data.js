@@ -3,9 +3,9 @@ const houseKarakatva = {
       "Wealth", "Body", "Complexion", "Decency", "Head", "Hair", "Limbs",
       "Livelihood", "Old age", "Peace", "Proportion of body", "Sound health",
       "Vitality", "Happiness", "Unhappiness", "Dream", "Sleep", "Renouncements",
-      "Virtues and Faculties", "Ability to work", "Fame", "Honor", "Knowledge",
+      "Ability to work", "Fame", "Honor", "Knowledge",
       "Moral character", "Personal charm", "Proficiency", "Self-respect",
-      "Strength", "Wisdom", "Abstract and Miscellaneous", "Antecedents",
+      "Strength", "Wisdom", "Antecedents",
       "Defamation", "Dignity", "Gambling", "Good behavior", "Insult",
       "Longevity", "Stigma"
     ],

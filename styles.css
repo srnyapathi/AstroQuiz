@@ -6,25 +6,25 @@
     --color-5: #A64F03; /* Orange */
 }
 
+
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    line-height: 1.6;
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 20px;
+    background-color: #f4f4f4;
     color: var(--color-3);
     background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
 }
 
 .container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(50, 186, 217, 0.2);
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
-    max-width: 600px;
     width: 100%;
     transition: transform 0.3s ease;
 }
@@ -33,15 +33,12 @@ body {
     transform: translateY(-5px);
 }
 
-h1 {
-    color: var(--color-5);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+h1, h2 {
+    color: #333;
 }
 
 /* Common styles for buttons */
-.button, .house-button, .answer-btn, #endQuiz {
+.button, .house-button,.planet-button, .answer-btn, #endQuiz {
     padding: 12px 24px;
     color: white;
     border: none;
@@ -75,6 +72,13 @@ h1 {
     margin-bottom: 20px;
 }
 
+.planetGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
 .house-button {
     padding: 15px;
     background-color: var(--color-1);
@@ -89,6 +93,22 @@ h1 {
 .house-button.selected {
     background-color: var(--color-4);
 }
+
+.planet-button {
+    padding: 15px;
+    background-color: var(--color-1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.planet-button.selected {
+    background-color: var(--color-4);
+}
+
 
 #startQuiz {
     padding: 12px 24px;
@@ -293,4 +313,112 @@ label {
         padding: 12px 24px;
         font-size: 16px;
     }
+}
+
+/* Planet Result Styles */
+.planet-result {
+    margin-bottom: 20px;
+}
+
+.planet-result h3 {
+    margin-bottom: 5px;
+}
+
+.planet-result .progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.planet-result .progress {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.5s ease-in-out;
+}
+
+.planet-result p {
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* You may also want to add some general styles for the results container */
+#planetResults {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* If you want to create a grid layout for planet results, you can use this */
+@media (min-width: 768px) {
+    #planetResults {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* General styles */
+.house-result, .planet-result {
+    margin-bottom: 20px;
+}
+
+.house-result h3, .planet-result h3 {
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.5s ease-in-out;
+}
+
+.house-result p, .planet-result p {
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Results container */
+#houseResults, #planetResults {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive grid layout for results */
+@media (min-width: 768px) {
+    #houseResults, #planetResults {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+canvas#resultChart {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }

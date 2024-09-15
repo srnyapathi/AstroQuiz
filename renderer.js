@@ -1,7 +1,12 @@
-document.getElementById('planetBtn').addEventListener('click', () => {
-    window.location.href = 'pre-quiz.html?type=planet';
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const planetBtn = document.getElementById('planetBtn');
+    const houseBtn = document.getElementById('houseBtn');
 
-document.getElementById('houseBtn').addEventListener('click', () => {
-    window.location.href = 'pre-quiz.html?type=house';
+    planetBtn.addEventListener('click', () => {
+        window.location.href = 'planet-pre-quiz.html';
+    });
+
+    houseBtn.addEventListener('click', () => {
+        window.location.href = 'pre-quiz.html';
+    });
 });

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Results</h1>
+        <div id="results">
+            <p>Score: <span id="score"></span></p>
+            <p>Attempted: <span id="attempted"></span></p>
+            <p>Correct: <span id="correct"></span></p>
+            <p>Wrong: <span id="wrong"></span></p>
+            <p>Total Questions: <span id="total"></span></p>
+            <p>Percentage: <span id="percentage"></span>%</p>
+        </div>
+        <canvas id="resultChart"></canvas>
+        <button onclick="window.location.href='planet-pre-quiz.html'">Take Another Quiz</button>
+        <button onclick="window.location.href='index.html'">Home</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = JSON.parse(localStorage.getItem('quizResult'));
+            if (!results) {
+                alert('No quiz results found. Please take a quiz first.');
+                window.location.href = 'planet-pre-quiz.html';
+                return;
+            }
+
+            document.getElementById('score').textContent = results.score;
+            document.getElementById('attempted').textContent = results.attempted;
+            document.getElementById('correct').textContent = results.score;
+            document.getElementById('wrong').textContent = results.wrong;
+            document.getElementById('total').textContent = results.total;
+            document.getElementById('percentage').textContent = results.percentage;
+
+            const planets = [];
+            const percentages = [];
+
+            for (const planet in results.planetPercentages) {
+                planets.push(planet);
+                percentages.push(results.planetPercentages[planet]);
+            }
+
+            // Create chart
+            const ctx = document.getElementById('resultChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: planets,
+                    datasets: [{
+                        label: 'Planet-wise Performance',
+                        data: percentages,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Percentage'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Planet-wise Performance',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
