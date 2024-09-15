@@ -2,17 +2,30 @@
   "name": "astromem",
   "version": "1.0.0",
   "main": "main.js", 
+  "author": {
+    "name": "Siva Ram Nyapathi",
+    "email": "sivaram.nyapathi@jyotishlabs.com",
+    "url": "https://jyotishlabs.com"
+  },
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "electron": "^32.1.0",
     "electron-reloader": "^1.2.3",
     "nodemon": "^2.0.22"
+  },
+
+  "build": {
+    "appId": "com.jyotishlabs.AstroMem",
+    "productName": "AstroMem",
+    "win": {
+      "target": "nsis"
+    }
   }
+
 }
