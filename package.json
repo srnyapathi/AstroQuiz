@@ -1,7 +1,7 @@
 {
   "name": "astroquiz",
   "version": "1.0.0",
-  "main": "main.js", 
+  "main": "main.js",
   "author": {
     "name": "Siva Ram Nyapathi",
     "email": "sivaram.nyapathi@jyotishlabs.com",
@@ -9,16 +9,17 @@
   },
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder"
+
   },
   "keywords": [],
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "electron": "^32.1.0",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^22.14.13"
   },
-
   "build": {
     "appId": "com.jyotishlabs.astroquiz",
     "productName": "astroquiz",
@@ -26,5 +27,4 @@
       "target": "nsis"
     }
   }
-
 }
