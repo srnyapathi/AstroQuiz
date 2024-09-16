@@ -24,7 +24,9 @@
     "appId": "com.jyotishlabs.astroquiz",
     "productName": "astroquiz",
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "publish" : []
+
     }
   }
 }
