@@ -48,6 +48,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/AstroMem Setup.exe # Adjust this path if necessary
-        asset_name: AstroMem-Setup-${{ github.event.inputs.version }}.exe
+        asset_path: ./dist/astroquiz Setup 1.0.0.exe  # Adjust this path if necessary
+        asset_name: astroquiz Setup-${{ github.event.inputs.version }}.exe
         asset_content_type: application/vnd.microsoft.portable-executable
